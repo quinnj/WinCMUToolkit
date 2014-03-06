@@ -26,7 +26,6 @@ results obtained from use of this software.
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include <sys/utsname.h>
 #include <sys/types.h>
 #include "toolkit.h"
 #include "rr_libs/general.h"
@@ -95,8 +94,7 @@ void main(int argc, char *argv[]) {
   int size_of_rec;
   char *temp_file_root;
   char *temp_file_ext;
-  char *host_name;
-  struct utsname uname_info;
+  char *host_name = "win32";
   int proc_id;
 
   /* Vocab hash table things */
@@ -161,10 +159,6 @@ void main(int argc, char *argv[]) {
       temp_file_ext = salloc("");
     }
   }
-
-  uname(&uname_info);
-
-  host_name = salloc(uname_info.nodename);
 
   proc_id = getpid();
 

@@ -22,7 +22,6 @@ results obtained from use of this software.
 
 #include <sys/types.h>
 #include <unistd.h>
-#include <sys/utsname.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -318,10 +317,9 @@ void main (int argc, char **argv) {
 
   int counter;
 
-  struct utsname uname_info;
   char *temp_file_root;
   char *temp_file_ext;
-  char *host_name;
+  char *host_name = "win32";
   int proc_id;
   char temp_word[500];
 
@@ -387,10 +385,6 @@ void main (int argc, char **argv) {
       temp_file_ext = salloc("");
     }
   }
-
-  uname(&uname_info);
-
-  host_name = salloc(uname_info.nodename);
 
   proc_id = getpid();
 
