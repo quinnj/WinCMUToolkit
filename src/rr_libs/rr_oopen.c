@@ -50,7 +50,7 @@ FILE *rr_oopen(char *path)
     if (lpath > sizeof(pipe) - strlen("compress >!  ") - 4)
       quit(-1,"%s: pathname '%s' is too long\n",rname,path);
      sprintf(pipe,"compress > %s",path);
-     fp = popen(pipe,"w");
+     fp = popen(pipe,"wb");
      if (!fp) quit(-1,"%s: problems opening the pipe '%s' for output.\n", rname,pipe);
      is_Z = 1;
   }
@@ -59,12 +59,12 @@ FILE *rr_oopen(char *path)
       if (lpath > sizeof(pipe) - strlen("gzip >!  ") -4)
 	quit(-1,"%s: pathname '%s' is too long\n",rname,path);
       sprintf(pipe,"gzip > %s",path);
-      fp = popen(pipe,"w");
+      fp = popen(pipe,"wb");
       if (!fp) quit(-1,"%s: problems opening the pipe '%s' for output.\n", rname,pipe);
       is_Z = 1;
     }
     else {
-      fp = rr_fopen(path,"w");
+      fp = rr_fopen(path,"wb");
       is_Z = 0;
     }
   }

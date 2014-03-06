@@ -79,13 +79,13 @@ FILE *rr_iopen(char *path)
      goto Z;
   }
   else {
-     fp = rr_fopen(path,"r");
+     fp = rr_fopen(path,"rb");
      is_Z = 0;
      goto record;
   }
 
 Z:
-  fp = popen(pipe,"r");
+  fp = popen(pipe,"rb");
   if (!fp) quit(-1,"%s: problems opening the pipe '%s' for input.\n", rname,pipe);
   is_Z = 1;
 

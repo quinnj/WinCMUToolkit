@@ -172,7 +172,7 @@ void compute_perplexity(ng_t *ng,
      what we want */
 
   if (out_probs && strcmp(probs_stream_filename,"-")) {
-    if ((temp_fp = fopen(probs_stream_filename,"w")) == NULL) {
+    if ((temp_fp = fopen(probs_stream_filename,"wb")) == NULL) {
       printf("Error : Can't open file %s for writing.\n",probs_stream_filename);
       return;
     }
@@ -180,7 +180,7 @@ void compute_perplexity(ng_t *ng,
   }
 
   if (annotate && strcmp(annotation_filename,"-")) {
-    if ((temp_fp = fopen(annotation_filename,"w")) == NULL) {
+    if ((temp_fp = fopen(annotation_filename,"wb")) == NULL) {
       printf("Error : Can't open file %s for writing.\n",annotation_filename);
       return;
     }
@@ -188,7 +188,7 @@ void compute_perplexity(ng_t *ng,
   }
     
   if (out_oovs && strcmp(oov_filename,"-")) {
-    if ((temp_fp = fopen(oov_filename,"w")) == NULL) {
+    if ((temp_fp = fopen(oov_filename,"wb")) == NULL) {
       printf("Error : Can't open file %s for writing.\n",oov_filename);
       return;
     }

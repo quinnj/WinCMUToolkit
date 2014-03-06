@@ -258,7 +258,7 @@ void main(int argc, char *argv[]) {
 
   sprintf(temp_word,"%s%s1%s",tempfiles_directory,temp_file_root,temp_file_ext);
   
-  non_unk_fp = rr_fopen(temp_word,"w");
+  non_unk_fp = rr_fopen(temp_word,"wb");
 
   pc_message(verbosity,2,"Writing non-OOV counts to temporary file %s\n",
 	     temp_word);
@@ -323,7 +323,7 @@ void main(int argc, char *argv[]) {
 		     "Writing sorted OOV-counts buffer to temporary file %s\n",
 		     temp_word);
 
-	  tempfile = rr_fopen(temp_word,"w");
+	  tempfile = rr_fopen(temp_word,"wb");
 	  
 	  for (i=0;i<=n-1;i++) {
 	    sort_ngram[i] = buffer[0].word[i];
@@ -413,7 +413,7 @@ void main(int argc, char *argv[]) {
 	       "Writing sorted buffer to temporary file %s\n",
 	       temp_word);
 
-    tempfile = rr_fopen(temp_word,"w");
+    tempfile = rr_fopen(temp_word,"wb");
     
     for (i=0;i<=n-1;i++) {
       sort_ngram[i] = buffer[0].word[i];
